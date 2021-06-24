@@ -1,51 +1,35 @@
 <template>
   <div class="home">
     <el-container>
-      <el-aside>
-        <el-menu
-          default-active="2"
-          class="el-menu-vertical-demo"
-          router
-        >
-          <template v-for="(item, index) in aside">
-            <template v-if="item.children&&item.children.length>0">
-              <el-submenu :index="index" :key="index">
-                <template slot="title">
-                  <i v-if="item.meta.icon" :class="item.meta.icon"></i>
-                  <i v-else class="el-icon-s-flag"></i>
-                  <span>{{item.meta.title}}</span>
-                </template>
-                <el-menu-item v-for="(cItem,cIndex) in item.children" :key="cIndex" :index="cItem.path">{{cItem.meta.title}}</el-menu-item>
-              </el-submenu>
-            </template>
-            <template v-else>
-              <el-menu-item :key="index" :index="item.path">
-                <i v-if="item.meta.icon" :class="item.meta.icon"></i>
-                <i v-else class="el-icon-s-flag"></i>
-                <span slot="title">{{item.meta.title}} </span>
-              </el-menu-item>
-            </template>
-          </template>
-        </el-menu>
+      <el-aside width='200px'>
+        <aside-component></aside-component>
       </el-aside>
-      <el-main>
-        <router-view></router-view>
-      </el-main>
+      <el-container>
+        <el-header>
+          <header-component></header-component>
+        </el-header>
+        <el-main>
+          <router-view></router-view>
+        </el-main>
+      </el-container>
     </el-container>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import { aside } from '../store/aside'
+import asideComponent from '@/components/aside.vue'
+import headerComponent from '@/components/header.vue'
 export default {
   name: 'Home',
   data () {
     return {
-      aside
+      // aside
     }
   },
-  components: {},
+  components: {
+    asideComponent,
+    headerComponent
+  },
   methods: {
     handleOpen (key, keyPath) {
       console.log(key, keyPath)
@@ -62,16 +46,9 @@ body,
 #app,
 .home,
 .el-container,
-.el-aside,
-.el-menu {
+.el-aside{
   height: 100%;
 }
 </style>
-<style lang="less" scope>
-.el-menu{
-  overflow-y: scroll;
-}
-.el-menu::-webkit-scrollbar {
-    width: 0;
-}
+<style lang="less" scoped>
 </style>

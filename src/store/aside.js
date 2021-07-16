@@ -1,6 +1,6 @@
 const aside = [
   {
-    path: '/home_page',
+    path: '/home_page/:id?',
     meta: { title: '主页', icon: 'el-icon-house' },
     component: () => import('../views/aside/Homepage.vue')
   },
@@ -10,12 +10,12 @@ const aside = [
       {
         path: '/user_list',
         meta: { title: '用户列表' },
-        component: () => import('../views/aside/userList.vue')
+        component: () => import('../views/aside/UserList.vue')
       },
       {
         path: '/user_add',
         meta: { title: '新增用户' },
-        component: () => import('../views/aside/addUser.vue')
+        component: () => import('../views/aside/AddUser.vue')
       }
     ]
   },
@@ -25,39 +25,41 @@ const aside = [
       {
         path: '/img_list',
         meta: { title: '图片列表' },
-        component: () => import('../views/aside/Homepage.vue')
+        component: () => import('../views/aside/ImgList.vue')
       },
       {
         path: '/upload_img',
         meta: { title: '上传图片' },
-        component: () => import('../views/aside/Homepage.vue')
+        component: () => import('../views/aside/UploadImg.vue')
       }
     ]
   },
   {
+    path: '/log',
     meta: { title: '信息', icon: 'el-icon-chat-square' },
-    children: [
-      {
-        path: '/user_log',
-        meta: { title: '登录日志' },
-        component: () => import('../views/aside/Homepage.vue')
-      },
-      {
-        path: '/upload_img_log',
-        meta: { title: '图片上传日志' },
-        component: () => import('../views/aside/Homepage.vue')
-      },
-      {
-        path: '/uppower_log',
-        meta: { title: '权限修改日志' },
-        component: () => import('../views/aside/Homepage.vue')
-      }
-    ]
+    component: () => import('../views/aside/Log.vue')
+    // children: [
+    //   {
+    //     path: '/user_log',
+    //     meta: { title: '登录日志' },
+    //     component: () => import('../views/aside/Homepage.vue')
+    //   },
+    //   {
+    //     path: '/upload_img_log',
+    //     meta: { title: '图片上传日志' },
+    //     component: () => import('../views/aside/Homepage.vue')
+    //   },
+    //   {
+    //     path: '/uppower_log',
+    //     meta: { title: '权限修改日志' },
+    //     component: () => import('../views/aside/Homepage.vue')
+    //   }
+    // ]
   },
   {
     path: '/set',
     meta: { title: '设置', icon: 'el-icon-setting' },
-    component: () => import('../views/aside/Homepage.vue')
+    component: () => import('../views/aside/Set.vue')
   }
 ]
 

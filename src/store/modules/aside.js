@@ -30,21 +30,22 @@ const aside = [
     ]
   },
   {
-    meta: { title: '信息', icon: 'el-icon-chat-square' },
-    children: [
-      {
-        path: '/user_log',
-        meta: { title: '登录日志' }
-      },
-      {
-        path: '/upload_img_log',
-        meta: { title: '图片上传日志' }
-      },
-      {
-        path: '/uppower_log',
-        meta: { title: '权限修改日志' }
-      }
-    ]
+    path: '/log',
+    meta: { title: '日志', icon: 'el-icon-chat-square' }
+    // children: [
+    //   {
+    //     path: '/user_log',
+    //     meta: { title: '登录日志' }
+    //   },
+    //   {
+    //     path: '/upload_img_log',
+    //     meta: { title: '图片上传日志' }
+    //   },
+    //   {
+    //     path: '/uppower_log',
+    //     meta: { title: '权限修改日志' }
+    //   }
+    // ]
   },
   {
     path: '/set',

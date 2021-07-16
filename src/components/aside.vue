@@ -1,12 +1,12 @@
 <template>
   <el-scrollbar class="aside-container">
-    <el-menu default-active="2" class="el-menu-vertical-demo" router>
+    <el-menu  default-active="0" class="el-menu-vertical-demo" router>
       <template v-for="(item, index) in aside">
         <template v-if="item.children&&item.children.length>0">
-          <el-submenu :index="index" :key="index">
+          <el-submenu :index="index.toString()" :key="index">
             <template slot="title">
-              <i v-if="item.meta.icon" :class="item.meta.icon"></i>
-              <i v-else class="el-icon-s-flag"></i>
+              <i  v-if="item.meta.icon" :class="item.meta.icon"></i>
+              <i v-else class="  el-icon-s-flag"></i>
               <span>{{item.meta.title}}</span>
             </template>
             <el-menu-item
@@ -18,8 +18,8 @@
         </template>
         <template v-else>
           <el-menu-item :key="index" :index="item.path">
-            <i v-if="item.meta.icon" :class="item.meta.icon"></i>
-            <i v-else class="el-icon-s-flag"></i>
+            <i class="" v-if="item.meta.icon" :class="item.meta.icon"></i>
+            <i v-else class="  el-icon-s-flag"></i>
             <span slot="title">{{item.meta.title}}</span>
           </el-menu-item>
         </template>
@@ -39,7 +39,9 @@ export default {
 </script>
 
 <style lang='less' scoped>
-
+.white{
+  color: #fff;
+}
 .el-menu {
   border: 0px;
 }

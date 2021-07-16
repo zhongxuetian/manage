@@ -1,11 +1,11 @@
 <template>
   <div class="home">
     <el-container>
-      <el-aside width='200px'>
+      <el-aside width="200px">
         <aside-component></aside-component>
       </el-aside>
       <el-container>
-        <el-header>
+        <el-header :style="'background:'+headerColor+';'">
           <header-component></header-component>
         </el-header>
         <el-main>
@@ -37,6 +37,28 @@ export default {
     handleClose (key, keyPath) {
       console.log(key, keyPath)
     }
+  },
+  beforeCreate () {
+    console.log('beforeCreated')
+  },
+  created () {
+    // this.$store.dispatch('a')
+    console.log('create')
+    // console.log(this.$route.params)
+    // if (this.$route.params.id !== 'ass') this.$router.push('/home_page/ass')
+  },
+  beforeRouteEnter (to, from, next) {
+    console.log('beforeRouteEnter')
+    next()
+  },
+  beforeRouteUpdate (to, from, next) {
+    console.log('beforeRouteUpdate')
+    next()
+  },
+  computed: {
+    headerColor () {
+      return this.$store.state.headerColor
+    }
   }
 }
 </script>
@@ -46,8 +68,16 @@ body,
 #app,
 .home,
 .el-container,
-.el-aside{
+.el-aside {
   height: 100%;
+}
+.el-header {
+  // padding: 0;
+  background: #409eff;
+  height: 35px !important;
+}
+.el-aside {
+  // background: #409EFF;
 }
 </style>
 <style lang="less" scoped>

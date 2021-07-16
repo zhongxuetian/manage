@@ -1,0 +1,17 @@
+*{
+	font-size: 14px;
+}
+
+.main-container{
+	border: 1px solid #e5e5e5;
+	border-radius: 8px;
+	padding: 20px;
+	margin: 20px;
+}
+.main-container .title{
+	padding: 10px 2px;
+	color: #409EFF;
+}
+.el-select-dropdown .el-scrollbar .el-scrollbar__wrap{
+	margin-bottom: 0px !important;
+}

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import Home from '../views/Home.vue'
 import { routers } from '../store/aside'
+import funs from '../assets/index'
 Vue.use(VueRouter)
 // console.log(routers)
 const routes = [
@@ -13,12 +14,12 @@ const routes = [
     children: [
       ...routers
     ]
+  },
+  {
+    path: '/login',
+    name: 'Home',
+    component: () => import('../views/Login.vue')
   }
-  // {
-  //   path: '/',
-  //   name: 'Home',
-  //   component: Home
-  // },
   // {
   //   path: '/about',
   //   name: 'About',
@@ -33,5 +34,17 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-
+router.beforeEach((to, from, next) => {
+  const username = funs.getCookie('username')
+  console.log(to)
+  if (username && to.path !== '/login') {
+    next()
+  } else if (username && to.path === '/login') {
+    next('/')
+  } else if (!username && to.path === '/login') {
+    next()
+  } else if (!username && to.path !== '/login') {
+    next('/login')
+  }
+})
 export default router

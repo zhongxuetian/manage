@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import Home from '../views/Home.vue'
-import { routers } from '../store/aside'
+import { routers } from '../router/aside'
 import funs from '../assets/index'
 Vue.use(VueRouter)
 // console.log(routers)

@@ -1,6 +1,6 @@
 <template>
   <el-scrollbar class="aside-container">
-    <el-menu  default-active="0" class="el-menu-vertical-demo" router>
+    <el-menu  :default-active="defaultActive" class="el-menu-vertical-demo" router>
       <template v-for="(item, index) in aside">
         <template v-if="item.children&&item.children.length>0">
           <el-submenu :index="index.toString()" :key="index">
@@ -33,6 +33,9 @@ export default {
   computed: {
     aside () {
       return this.$store.state.asideModule.aside
+    },
+    defaultActive () {
+      return this.$route.fullPath
     }
   }
 }

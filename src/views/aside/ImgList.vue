@@ -1,21 +1,21 @@
 <template>
   <div class="main-container">
     <el-row>
-      <el-col :lg="18">
-        <el-row type='flex' class="wrap">
+      <el-col :span="18">
+        <el-row type='flex' class="wrap" :gutter='20'>
           <el-col
-            :span="7"
+            :span="11"
+            :lg='7'
             class="card"
             v-for="(item,index) in imgList"
             :key="index"
-            :offset="index%3?1:0"
           >
             <el-card
               :body-style="{ padding: '0px'}"
               :shadow="detail_index == index?'always':'hover'"
             >
               <div>
-                <el-image fit='cover' :src="item.url" class="image" ></el-image>
+                <el-image  :preview-src-list="bigImgs"  :src="item.url" class="image" ></el-image>
               </div>
               <div style="padding: 14px;">
                 <span>{{ item.name }}</span>
@@ -28,7 +28,7 @@
           </el-col>
         </el-row>
       </el-col>
-      <el-col :lg="5" class="hidden-md-and-down" :offset="1">
+      <el-col :span="5"  :offset="1">
         <div class="t">详情</div>
         <div v-if="detail">
           <div class="box">
@@ -67,6 +67,13 @@ export default {
   computed: {
     imgList () {
       return this.$store.state.imgsModule.imgs
+    },
+    bigImgs () {
+      const bigImgs = []
+      this.$store.state.imgsModule.imgs.forEach((item) => {
+        bigImgs.push(item.url)
+      })
+      return bigImgs
     }
   },
   methods: {

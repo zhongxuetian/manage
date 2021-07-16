@@ -38,23 +38,6 @@ const aside = [
     path: '/log',
     meta: { title: '信息', icon: 'el-icon-chat-square' },
     component: () => import('../views/aside/Log.vue')
-    // children: [
-    //   {
-    //     path: '/user_log',
-    //     meta: { title: '登录日志' },
-    //     component: () => import('../views/aside/Homepage.vue')
-    //   },
-    //   {
-    //     path: '/upload_img_log',
-    //     meta: { title: '图片上传日志' },
-    //     component: () => import('../views/aside/Homepage.vue')
-    //   },
-    //   {
-    //     path: '/uppower_log',
-    //     meta: { title: '权限修改日志' },
-    //     component: () => import('../views/aside/Homepage.vue')
-    //   }
-    // ]
   },
   {
     path: '/set',

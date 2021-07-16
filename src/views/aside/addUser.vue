@@ -24,9 +24,6 @@
       <el-date-picker type="date" placeholder="选择日期" v-model="form.date" style="width: 100%;"></el-date-picker>
     </el-col>
   </el-form-item>
-  <el-form-item label="即时配送">
-    <el-switch v-model="form.delivery"></el-switch>
-  </el-form-item>
   <el-form-item label="权限">
     <el-checkbox-group v-model="form.power">
       <el-checkbox label="查询" :disabled='true' name="type"></el-checkbox>
@@ -34,10 +31,10 @@
       <el-checkbox label="删除" name="type"></el-checkbox>
     </el-checkbox-group>
   </el-form-item>
-  <el-form-item label="特殊资源">
+  <el-form-item label="部门">
     <el-radio-group v-model="form.resource">
-      <el-radio label="线上品牌商赞助"></el-radio>
-      <el-radio label="线下场地免费"></el-radio>
+      <el-radio label="研发部"></el-radio>
+      <el-radio label="市场部"></el-radio>
     </el-radio-group>
   </el-form-item>
   <el-form-item label="住址">

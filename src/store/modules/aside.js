@@ -50,6 +50,10 @@ const aside = [
   {
     path: '/set',
     meta: { title: '设置', icon: 'el-icon-setting' }
+  },
+  {
+    path: '/drag',
+    meta: { title: '拖拽', icon: 'el-icon-thumb' }
   }
 ]
 

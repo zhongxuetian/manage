@@ -43,6 +43,11 @@ const aside = [
     path: '/set',
     meta: { title: '设置', icon: 'el-icon-setting' },
     component: () => import('../views/aside/Set.vue')
+  },
+  {
+    path: '/drag',
+    meta: { title: '拖拽' },
+    component: () => import('../views/aside/Drag.vue')
   }
 ]
 
